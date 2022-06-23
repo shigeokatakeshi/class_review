@@ -6,16 +6,43 @@
 # tom = Customer(first_name="Tom", family_name="Ford")
 # tom.full_name()  # "Tom Ford" という値を返す
 
+# C-2. 年齢という概念の追加
+# ken = Customer(first_name="Ken", family_name="Tanaka", age=15)
+# ken.age  # 15 という値を返す
+
+# tom = Customer(first_name="Tom", family_name="Ford", age= 57)
+# tom.age # 57 という値を返す
+
+# ieyasu = Customer(first_name="Ieyasu", family_name="Tokugawa", age=73)
+# ieyasu.age # 73 という値を返す
+
+
+from pickle import NONE
+
 
 class Customer:
-    def __init__(self, first_name, family_name):
+    def __init__(self, first_name, family_name, age=NONE):
         self.first_name = first_name
         self.family_name = family_name
-    
+        self.age = age
+
     def full_name(self):
         return self.first_name + " " + self.family_name
 
+    # def age(self):
+    #     return self.age
+
+
 ken = Customer(first_name="Ken", family_name="Tanaka")
 tom = Customer(first_name="Tom", family_name="Ford")
+
 print(tom.full_name())
 print(ken.full_name())
+
+ken = Customer(first_name="Ken", family_name="Tanaka", age=15)
+tom = Customer(first_name="Tom", family_name="Ford", age=57)
+ieyasu = Customer(first_name="Ieyasu", family_name="Tokugawa", age=73)
+
+print(ken.age)
+print(tom.age)
+print(ieyasu.age)
