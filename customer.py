@@ -15,7 +15,19 @@
 
 # ieyasu = Customer(first_name="Ieyasu", family_name="Tokugawa", age=73)
 # ieyasu.age # 73 という値を返す
+# C-3. 年齢に応じた適切な入場料(entry_fee)を計算できる
+# 料金の計算ルール
+# こども料金(20歳未満): 1000円
+# おとな料金(20歳以上65歳未満): 1500円
+# シニア料金(65歳以上): 1200円
+# ken = Customer(first_name="Ken", family_name="Tanaka", age=15)
+# ken.entry_fee()  # 1000 という値を返す
 
+# tom = Customer(first_name="Tom", family_name="Ford", age= 57)
+# tom.entry_fee() # 1500 という値を返す
+
+# ieyasu = Customer(first_name="Ieyasu", family_name="Tokugawa", age=73)
+# ieyasu.entry_fee() # 1200 という値を返す
 
 from pickle import NONE
 
@@ -29,8 +41,13 @@ class Customer:
     def full_name(self):
         return self.first_name + " " + self.family_name
 
-    # def age(self):
-    #     return self.age
+    def entry_fee(self):
+        if 20 > self.age:
+            return 1000
+        if 20 <= self.age < 65:
+            return 1500
+        if 65 <= self.age:
+            return 1200
 
 
 ken = Customer(first_name="Ken", family_name="Tanaka")
@@ -46,3 +63,7 @@ ieyasu = Customer(first_name="Ieyasu", family_name="Tokugawa", age=73)
 print(ken.age)
 print(tom.age)
 print(ieyasu.age)
+
+print(ken.entry_fee())
+print(tom.entry_fee())
+print(ieyasu.entry_fee())
